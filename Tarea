@@ -10,33 +10,32 @@ estado.comer(self)
 }
 
 methodjugar(){
-unEstado.jugar()
-}
-
-method jugar?{
 estado.jugar(self)
 }
 
+method jugar?(){
 }
 
-object hambrienta(){
+}
+
+object hambrienta{
   method comer(tamagotchi){
   tamagotchi.cambiarEstado(contenta)
   }
   
   method jugar(){
-  estado = "malHumor"
+  tamagotchi.cambiarEstado(malHumor)
   }
 }
 
-object contenta(){
+object contenta{
   method comer(){
   nivel +1
   }
   
   method jugar(){
     if(cantidadDeVecesQueJugo >5){
-    estado = "Hambrienta"
+    tamagotchi.cambiarEstado(hambrienta)
     }else{
     nivel +2
     }
@@ -44,19 +43,20 @@ object contenta(){
   
 }
 
-object malHumor(){
+object malHumor{
   
   method comer(minutos){
     if(minutos>80){
-      estado = "contenta"
+       tamagotchi.cambiarEstado(contenta)
     }
   }
 
   method jugar(){
-  estado = "contenta"
+   tamagotchi.cambiarEstado(contenta)
   }
 
 }
+
 
 
 
