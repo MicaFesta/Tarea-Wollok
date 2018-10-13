@@ -1,0 +1,68 @@
+//Tamagotchi
+
+class MascotaVirtual {
+var nivel
+var estado
+var cantidadDeVeces
+
+method comer(){
+estado.comer(self)
+}
+
+methodjugar(){
+unEstado.jugar()
+}
+
+method jugar?{
+estado.jugar(self)
+}
+
+}
+
+object hambrienta(){
+  method comer(tamagotchi){
+  tamagotchi.cambiarEstado(contenta)
+  }
+  
+  method jugar(){
+  estado = "malHumor"
+  }
+}
+
+object contenta(){
+  method comer(){
+  nivel +1
+  }
+  
+  method jugar(){
+    if(cantidadDeVecesQueJugo >5){
+    estado = "Hambrienta"
+    }else{
+    nivel +2
+    }
+  }
+  
+}
+
+object malHumor(){
+  
+  method comer(minutos){
+    if(minutos>80){
+      estado = "contenta"
+    }
+  }
+
+  method jugar(){
+  estado = "contenta"
+  }
+
+}
+
+
+
+
+
+
+
+
+
