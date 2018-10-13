@@ -3,18 +3,22 @@
 class MascotaVirtual {
 var nivelDeContentidad
 var estado
-var cantidadDeVeces
+var cantidadDeVecesQueJugo
 
-method comer(){
-estado.comer(self)
-}
+  method nivelDeContentidad(){
+  return nivelDeContentidad
+  }
 
-methodjugar(){
-estado.jugar(self)
-}
+  method comer(){
+  estado.comer(self)
+  }
 
-method jugar?(){
-}
+  methodjugar(){
+  estado.jugar(self)
+  }
+
+  method jugar?(){
+  }
 
 }
 
@@ -30,14 +34,14 @@ object hambrienta{
 
 object contenta{
   method comer(){
-  nivel +1
+  nivelDeContentidad +1
   }
   
   method jugar(){
     if(cantidadDeVecesQueJugo >5){
-    tamagotchi.cambiarEstado(hambrienta)
+     tamagotchi.cambiarEstado(hambrienta)
     }else{
-    nivel +2
+      nivelDeContentidad + 2
     }
   }
   
