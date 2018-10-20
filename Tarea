@@ -4,20 +4,31 @@ class MascotaVirtual {
 var nivelDeContentidad
 var estado
 var cantidadDeVecesQueJugo
+var minutos
 
-  method nivelDeContentidad(){
-  return nivelDeContentidad
-  }
 
   method comer(){
-  estado.comer(self)
+  	estado.comer(self)
   }
 
-  methodjugar(){
-  estado.jugar(self)
+  method jugar(){
+  	estado.jugar(self)
   }
 
-  method jugar?(){
+  method queresJugar(){
+  	return (estado==contenta||estado==aburrida)
+  }
+  
+  method subirNivelContentidad(numero){
+  	return nivelDeContentidad + numero
+  }
+  
+  method dameTusMinutos(){
+  	return minutos
+  }
+  
+  method cantidadDeVecesQueJugo(){
+  	return cantidadDeVecesQueJugo
   }
 
 }
@@ -27,21 +38,21 @@ object hambrienta{
   tamagotchi.cambiarEstado(contenta)
   }
   
-  method jugar(){
+  method jugar(tamagotchi){
   tamagotchi.cambiarEstado(malHumor)
   }
 }
 
 object contenta{
-  method comer(){
-  nivelDeContentidad +1
+  method comer(tamagotchi){
+  tamagotchi.subirNivelContentidad(1)
   }
   
-  method jugar(){
-    if(cantidadDeVecesQueJugo >5){
+  method jugar(tamagotchi){
+    if(tamagotchi.cantidadDeVecesQueJugo() >5){
      tamagotchi.cambiarEstado(hambrienta)
     }else{
-      nivelDeContentidad + 2
+      tamagotchi.subirNivelContentidad(2)
     }
   }
   
@@ -49,18 +60,21 @@ object contenta{
 
 object malHumor{
   
-  method comer(minutos){
+  method comer(minutos,tamagotchi){
     if(minutos>80){
        tamagotchi.cambiarEstado(contenta)
     }
   }
 
-  method jugar(){
+  method jugar(tamagotchi){
    tamagotchi.cambiarEstado(contenta)
   }
 
 }
 
+object aburrida{
+	
+}
 
 
 
